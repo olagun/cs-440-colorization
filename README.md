@@ -1,1 +1,1 @@
-# cs-440-colorization
+# CS 440 - Colorization
