@@ -1,8 +1,4 @@
 import matplotlib.pyplot as plt
-from PIL import Image, ImageOps
-import numpy as np
-import math
-import random
 from util import get_channels
 from k_means import k_means
 
@@ -26,18 +22,19 @@ def graph_image(pixels):
 
 
 def graph_k_means(pixels):
-    clusters = k_means(pixels)
+    _, clusters = k_means(pixels)
 
     figure = plt.figure()
     plot = figure.add_subplot(projection='3d')
 
     colors = ["blue", "red", "yellow", "green", "purple"]
 
+    print("Starting Graph")
     for i in range(len(pixels)):
         r, g, b = pixels[i]
         cluster = clusters[i]
         plot.scatter([r], [g], [b], marker="^", color=colors[cluster])
-
+    print("Ending Graph") 
     plot.set_xlabel('Red')
     plot.set_ylabel('Green')
     plot.set_zlabel('Blue')
